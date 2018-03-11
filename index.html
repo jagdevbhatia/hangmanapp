@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html><!DOCTYPE html>
+
+<head>
+	<title>Hangman App</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+	<script src="bower_components/angular/angular.js"></script>
+	<script src="app.js"></script>
+
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href=".css"> <!-- corrected path to where the file is==same directory as index-->
+	
+</head>
+<body ng-app="HangmanApp" ng-controller="GameController">
+	<div>
+		Guesses Left :: {{guesses}}
+	</div>
+
+    <div class="wrapper">
+   <h1>Hangman</h1>
+    <h2>Vanilla JavaScript Hangman Game</h2>
+    
+</div>
+<div class="wrapper">
+    <div id="buttons">
+    </div>  
+    <p id="catagoryName"></p>
+    <div id="hold">
+    </div>
+    <p id="mylives"></p>
+     
+     <canvas id="stickman">This Text will show if the Browser does NOT support HTML5 Canvas tag</canvas>
+    <div class="container">
+      
+</div>
+
+     
+
+	<div>
+		<div style="min-width: 40%">
+			Correct Letters :: <span ng-repeat="letter in correctLettersChosen">{{letter}}</span>
+		</div>
+		<div style="min-width: 40%">
+			Incorrect Letters :: <span ng-repeat="letter in incorrectLettersChosen">{{letter}}</span>
+		</div>
+	</div>
+	<div>{{displayWord}}</div>
+	<div>
+		<input type="text" name="guess" ng-model="input.letter" ng-minlength="1" ng-maxlength="1" ng-pattern="/^[A-Za-z]+$/">
+		<button ng-click="letterChosen()">SUBMIT</button>
+	</div>
+</body>
+</html>
